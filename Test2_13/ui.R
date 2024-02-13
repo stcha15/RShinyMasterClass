@@ -13,13 +13,13 @@ library(shiny)
 fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Silly Geyser Data"),
 
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
             sliderInput("bins",
-                        "Number of bins:",
+                        "Some bins for you:",
                         min = 1,
                         max = 50,
                         value = 30)
