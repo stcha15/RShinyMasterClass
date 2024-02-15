@@ -13,11 +13,17 @@ library(shiny)
 fluidPage(
 
     # Application title
-    titlePanel("Silly Geyser Data"),
+  fluidRow(
+    column(8, wellPanel(
+  titlePanel("Silly Geyser Data"))),
+  column(4,
+         tags$img(src="https://www.the-geyser.com/content/images/size/w256h256/2022/03/geyser-logo.png"))
+  ),
+ 
 
     # Sidebar with a slider input for number of bins
-    sidebarLayout(
-        sidebarPanel(
+    fluidRow(
+        column(4,
             sliderInput("bins",
                         "Some bins for you:",
                         min = 1,
@@ -26,8 +32,18 @@ fluidPage(
         ),
 
         # Show a plot of the generated distribution
-        mainPanel(
-            plotOutput("distPlot")
+        column(8,
+            navbarPage("Plots",
+              tabPanel("Plot1", plotOutput("distPlot")),
+              tabPanel("Plot2", plotOutput("distPlot2"))
+              
         )
-    )
+        )
+    ),
+  
+ fluidRow(
+    column(4, tags$p("Kaitlyn St. C")),
+    column(4, tags$a(href="stcha003@umn.edu", "stcha003@umn.edu")),
+    column(4, tags$a(href="https://www.nps.gov/yell/planyourvisit/exploreoldfaithful.htm", "More information here!", target="_blank"))
+)
 )
